@@ -8,8 +8,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import nltk
 import numpy as np
 import warnings
-import pyttsx3 #pip install pyttsx3
-import speech_recognition as sr #pip install speechRecognition
+
 import datetime
 import wikipedia #pip install wikipedia
 import webbrowser
@@ -20,51 +19,6 @@ warnings.filterwarnings('ignore')
 nltk.download('punkt', quiet = True)
 nltk.download('wordnet', quiet = True)
 
-
-# engine = pyttsx3.init('sapi5')
-# voices = engine.getProperty('voices')
-# # print(voices[1].id)
-# engine.setProperty('voice', voices[0].id)
-#
-#
-# def speak(audio):
-#     engine.say(audio)
-#     engine.runAndWait()
-#
-#
-# def wishMe():
-#     hour = int(datetime.datetime.now().hour)
-#     if hour>=0 and hour<12:
-#         speak("Good Morning!")
-#
-#     elif hour>=12 and hour<18:
-#         speak("Good Afternoon!")
-#
-#     else:
-#         speak("Good Evening!")
-#
-#     speak("Hello sir, I am Candice. If you want to know about me, just say introduce. To access through wikipedia, just say the topic and say wikipedia with it. To exit, just say bye")
-#
-#
-# def takeCommand():
-#     # It takes microphone input from the user and returns string output
-#
-#     r = sr.Recognizer()
-#     with sr.Microphone() as source:
-#         print("Listening...")
-#         r.pause_threshold = 1
-#         audio = r.listen(source)
-#
-#     try:
-#         print("Recognizing...")
-#         query = r.recognize_google(audio, language='en-in')
-#         print(f"User : {query}\n")
-#
-#     except Exception as e:
-#         # print(e)
-#         print("Say that again please...")
-#         return "None"
-#     return query
 
 
 # article = Article("https://www.mayoclinic.org/diseases-conditions/chronic-kidney-disease/symptoms-causes/syc-20354521")
@@ -168,23 +122,20 @@ def response(user_response):
 def chat(user_response):
     flag = True
     while (flag == True):
-        # query = takeCommand().lower()
-        # query = input()
+        
         # if 'wikipedia' in query:
         user_response = user_response.lower()
         if 'wikipedia' in user_response:
-            # speak('Searching Wikipedia...')
+  
             user_response = user_response.replace("wikipedia", "")
             results = wikipedia.summary(user_response, sentences=2)
-            # speak("According to Wikipedia")
-            # print("Candice : ", results)
-            # speak(results)
+           
             return "Wikipedia : " + results
         else:
             results = chatty(user_response)
             # print("Candice : ", results)
-            # speak(results)
-
+          
+  
             if (results == EXIT_RESPONSE):
                 flag = False
             return results
@@ -212,25 +163,7 @@ def chatty(user_response):
 
 
 
-# if __name__ == "__main__":
-#     wishMe()
-#     flag = True
-#     while(flag == True):
-#         query = takeCommand().lower()
-#         # query = input()
-#         if 'wikipedia' in query:
-#             speak('Searching Wikipedia...')
-#             query = query.replace("wikipedia", "")
-#             results = wikipedia.summary(query, sentences=2)
-#             speak("According to Wikipedia")
-#             print("Candice : ", results)
-#             speak(results)
-#         else:
-#             results = chat(query)
-#             print("Candice : ", results)
-#             speak(results)
-#             if(results == EXIT_RESPONSE):
-#                 flag = False
+
 
 
 
