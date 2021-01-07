@@ -20,7 +20,7 @@ Jinja2==2.11.2
 joblib==0.15.1
 Js2Py==0.70
 lazy-object-proxy==1.4.3
-lxml==4.5.0
+lxml==4.6.2
 MarkupSafe==1.1.1
 mccabe==0.6.1
 newspaper3k==0.2.8
