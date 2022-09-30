@@ -17,7 +17,7 @@ isort==4.3.21
 itsdangerous==1.1.0
 jieba3k==0.35.1
 Jinja2==2.11.2
-joblib==0.15.1
+joblib==1.2.0
 Js2Py==0.70
 lazy-object-proxy==1.4.3
 lxml==4.5.0
